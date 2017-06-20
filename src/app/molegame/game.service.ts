@@ -8,6 +8,7 @@ export class GameService {
   private holes: Hole[];
   private gameLoop;
   public score: number;
+  public gameTime;
 
   constructor() {
     this.score = 0;
@@ -24,10 +25,13 @@ export class GameService {
   }
 
   startGame(){
+
     this.gameLoop = setInterval( ()=> {
 
       const index = Math.floor(Math.random() * this.holes.length);
       this.holes[index].state = 'up';
+
+      this.gameTime =  new Date();
 
       setTimeout( () => {
         this.holes[index].state = '';
@@ -49,6 +53,10 @@ export class GameService {
         this.startGame();
       }, 1000)
     }
+  }
+
+  getTime(){
+    return this.gameTime;
   }
 
 }

@@ -5,16 +5,9 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
   @Input() score: number;
-  public time;
-
-  constructor() {
-    setInterval(()=> this.time = new Date(), 1000)
-  }
-
-  ngOnInit() {
-  }
+  @Input() time: Date;
 
 }
