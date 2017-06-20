@@ -1,5 +1,6 @@
 <div id="lawn">
   <app-hole *ngFor="let hole of game.getHoles()"
-            [hole]="hole">
+            [hole]="hole"
+            (hit)="game.hit($event)">
   </app-hole>
 </div>

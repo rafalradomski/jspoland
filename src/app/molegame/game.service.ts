@@ -14,6 +14,7 @@ export class GameService {
     while (len--) {
       this.holes.push(new Hole())
     }
+    this.startGame();
   }
 
   getHoles(){
@@ -42,8 +43,9 @@ export class GameService {
 
       setTimeout(()=> {
         hole.state = '';
+        console.log('hited');
         this.startGame();
-      }, 500)
+      }, 1000)
     }
   }
 

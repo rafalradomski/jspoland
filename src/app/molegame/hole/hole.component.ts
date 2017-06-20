@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import {Hole} from '../hole';
 
 @Component({
@@ -8,9 +8,8 @@ import {Hole} from '../hole';
 })
 export class HoleComponent {
 
-   @Input()
-
-   public hole: Hole;
+  @Input() hole: Hole;
+  @Output() hit = new EventEmitter();
 
 
 }
