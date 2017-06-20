@@ -23,7 +23,7 @@ export class SpeakDirective {
     console.log(this.element.nativeElement);
     this.renderer.setStyle(
         this.element.nativeElement,
-        'background-colour',
+        'background-color',
         'black'
     )
   }
