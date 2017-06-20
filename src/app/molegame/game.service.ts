@@ -7,8 +7,10 @@ export class GameService {
 
   private holes: Hole[];
   private gameLoop;
+  public score: number;
 
   constructor() {
+    this.score = 0;
     this.holes = [];
     let len = 4;
     while (len--) {
@@ -40,7 +42,7 @@ export class GameService {
 
       clearInterval(this.gameLoop);
       hole.state = 'hit';
-
+      this.score +=1;
       setTimeout(()=> {
         hole.state = '';
         console.log('hited');

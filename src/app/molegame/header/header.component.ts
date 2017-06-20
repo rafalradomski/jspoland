@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
      selector: 'app-header',
@@ -7,11 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  public score: number;
+  @Input() score: number;
   public time;
 
   constructor() {
-    this.score = 100;
     setInterval(()=> this.time = new Date(), 1000)
   }
 
