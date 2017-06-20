@@ -6,11 +6,12 @@ import { HeaderComponent } from './header/header.component';
 import { LawnComponent } from './lawn/lawn.component';
 import { HoleComponent } from './hole/hole.component';
 import { GameService } from "./game.service";
+import { ScorePipe } from './score.pipe';
 
 @NgModule({
        imports: [CommonModule],
      providers: [GameService],
-  declarations: [GameComponent, HeaderComponent, LawnComponent, HoleComponent],
+  declarations: [GameComponent, HeaderComponent, LawnComponent, HoleComponent, ScorePipe],
        exports: [GameComponent]
 })
 export class MolegameModule { }
