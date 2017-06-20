@@ -13,6 +13,10 @@ export class SpeakDirective {
     this.renderer = renderer;
   }
 
+  ngOnInit(): void{
+    this.renderer.listen("window","click", ()=> console.log('window click'))
+  }
+
   @HostListener('mouseenter')
   public speak(){
     console.log('speaking');
