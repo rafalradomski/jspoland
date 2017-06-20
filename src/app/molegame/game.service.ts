@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import {Hole} from './hole';
-import {setInterval} from "timers";
+//import {setInterval} from "./timers";
 
 @Injectable()
 export class GameService {
 
   private holes: Hole[];
+  private gameLoop;
 
   constructor() {
     this.holes = [];
@@ -20,7 +21,7 @@ export class GameService {
   }
 
   startGame(){
-    setInterval( ()=> {
+    this.gameLoop = setInterval( ()=> {
 
       const index = Math.floor(Math.random() * this.holes.length);
       this.holes[index].state = 'up';
@@ -30,6 +31,20 @@ export class GameService {
       }, 750);
 
     }, 1000)
+  }
+
+  hit(hole: Hole){
+
+    if(hole.state === 'up') {
+
+      clearInterval(this.gameLoop);
+      hole.state = 'hit';
+
+      setTimeout(()=> {
+        hole.state = '';
+        this.startGame();
+      }, 500)
+    }
   }
 
 }
