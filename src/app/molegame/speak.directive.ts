@@ -1,12 +1,27 @@
-import { Directive, HostListener } from '@angular/core';
+import { Directive, HostListener, ElementRef, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appSpeak]'
 })
 export class SpeakDirective {
 
-  @HostListener('mouseenter') speak(){
+  private element: ElementRef;
+  private renderer: Renderer2;
+
+  constructor(element: ElementRef, renderer: Renderer2){
+    this.element = element;
+    this.renderer = renderer;
+  }
+
+  @HostListener('mouseenter')
+  public speak(){
     console.log('speaking');
+    console.log(this.element.nativeElement);
+    this.renderer.setStyle(
+        this.element.nativeElement,
+        'background-colour',
+        'black'
+    )
   }
 
 }
