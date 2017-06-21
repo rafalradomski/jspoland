@@ -9,8 +9,10 @@ import { GameService } from "./game.service";
 import { ScorePipe } from './score.pipe';
 import { SpeakDirective } from './speak.directive';
 
+import {UtilesModule} from '../utiles/utiles.module';
+
 @NgModule({
-       imports: [CommonModule],
+       imports: [CommonModule, UtilesModule],
      providers: [GameService],
   declarations: [GameComponent, HeaderComponent, LawnComponent, HoleComponent, ScorePipe, SpeakDirective],
        exports: [GameComponent]
